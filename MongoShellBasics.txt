@@ -1,0 +1,49 @@
+Microsoft Windows [Version 10.0.18363.1256]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>mongo
+MongoDB shell version v4.2.6
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("1c135dfb-b113-449e-a56a-6dd6abca5ae7") }
+MongoDB server version: 4.2.6
+Server has startup warnings:
+2021-04-11T19:05:59.130+0530 I  CONTROL  [initandlisten]
+2021-04-11T19:05:59.130+0530 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-04-11T19:05:59.130+0530 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-04-11T19:05:59.130+0530 I  CONTROL  [initandlisten]
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+testDb  0.000GB
+vulcan  0.000GB
+> use testDb
+switched to db testDb
+>
+> show collection
+2021-05-03T20:24:10.081+0530 E  QUERY    [js] uncaught exception: Error: don't know how to show [collection] :
+shellHelper.show@src/mongo/shell/utils.js:1139:11
+shellHelper@src/mongo/shell/utils.js:790:15
+@(shellhelp2):1:1
+> show collections
+testCollection
+
+> db.testCollection.find().pretty()
+{
+        "_id" : ObjectId("60900dd2acd5ddcb72ff0408"),
+        "name" : "John",
+        "role" : "tester"
+}
+>
